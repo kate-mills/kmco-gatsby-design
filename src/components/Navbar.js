@@ -1,17 +1,44 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import logo from "../images/logo.svg"
+import logo from "../images/devsalon-3dd\ copy.png"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
+import AnimatedSvg from "./AnimatedSvg"
 
 const Navbar = () => {
-  return <h2>navbar component</h2>
+
+  return (
+    <Wrapper>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            {/* {<img src={logo} alt="devsalon logo"/> && <AnimatedSvg/>||<img src={logo} alt="design"/>}*/}
+            <img src={logo} alt="devsalon logo"/> 
+          </Link>
+            <button className="toggle-btn">
+              <GoThreeBars/>
+            </button>
+        </div>
+        <ul className="nav-links">
+          <li>
+            <button>products</button>
+          </li>
+          <li>
+            <button>developers</button>
+          </li>
+          <li>
+            <button>company</button>
+          </li>
+        </ul>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.nav`
   position: relative;
-  background: transparent;
+  background: var(--mauve);
   z-index: 1;
   height: 5rem;
   display: flex;
@@ -22,11 +49,11 @@ const Wrapper = styled.nav`
     max-width: var(--max-width);
   }
   .nav-header {
-    color: var(--clr-white);
+    color: var(--blueGrey);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
+    img, svg {
       width: auto;
     }
     .toggle-btn {
@@ -38,12 +65,13 @@ const Wrapper = styled.nav`
       font-size: 1.5rem;
       border-radius: 2rem;
       border: transparent;
-      color: var(--clr-white);
-      background: var(--clr-primary-5);
+      color: var(--lightPink);
+      background: transparent;
       cursor: pointer;
       transition: var(--transition);
       &:hover {
-        background: var(--clr-primary-3);
+        color: var(--mauve);
+        cursor: pointer;
       }
     }
   }
@@ -73,9 +101,11 @@ const Wrapper = styled.nav`
       position: relative;
     }
     button {
-      color: var(--clr-white);
+      color: var(--lightPink);
       background: transparent;
       border: transparent;
+      font-family: "Karla";
+      /* font-family: 'Montserrat';*/
       font-size: 1rem;
       letter-spacing: 2px;
       font-weight: 500;

@@ -6,4 +6,6 @@ import Survey from "./Survey"
 import Slider from "./Slider"
 import Algolia from "./Algolia"
 import GridProjects from "./GridProjects"
-export { Layout, Hero, About, Projects, Survey, Slider, Algolia, GridProjects }
+import BasicHero from "./Wtf"
+import AnimatedSvg from "./AnimatedSvg"
+export { Layout, Hero, About, Projects, Survey, Slider, Algolia, GridProjects, BasicHero, AnimatedSvg }

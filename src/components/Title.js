@@ -2,7 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 const Title = ({ title }) => {
-  return <h2>title component</h2>
+  return(
+    <Wrapper>
+      <h2><span>/</span>{title}</h2>
+    </Wrapper>
+  )
 }
 const Wrapper = styled.div`
   text-align: center;
@@ -14,7 +18,7 @@ const Wrapper = styled.div`
     font-weight: 500;
     span {
       font-size: 0.85em;
-      color: var(--clr-primary-5);
+      color: var(--wine);
       margin-right: 1rem;
       font-weight: 700;
     }

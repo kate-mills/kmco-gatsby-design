@@ -4,8 +4,47 @@ import Title from "./Title"
 import styled from "styled-components"
 import Image from "gatsby-image"
 import SearchButtons from "./SearchButtons"
-const Projects = () => {
-  return <h2>projects component</h2>
+
+const Projects = ({projects:data, title, showAllProjectsBtn}) => {
+  const [projects, setProjects] = React.useState(data);
+
+  const setBackToAll = () =>{
+    setProjects(data);
+  }
+
+  return (
+    <Wrapper className="section">
+      <Title title={title || "projects"}/>
+
+      { showAllProjectsBtn && <SearchButtons
+        projects={data}
+        setProjects={setProjects}
+        setBackToAll={setBackToAll}
+        />
+      }
+
+      <div className="section-center">
+        {projects.map((item)=>{
+          const {name, date, type} = item.data
+          const fluid = item.data.image.localFiles[0].childImageSharp.fluid
+          return(
+            <article key={item.id}>
+              <div className="container">
+                <Image fluid={fluid} className="img"/>
+                <div className="info">
+                  <p>- {type} -</p>
+                  <h3>{name}</h3>
+                </div>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+      {
+        showAllProjectsBtn && <Link to="/projects" className="btn">all projects</Link>
+      }
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`

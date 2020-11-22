@@ -3,7 +3,24 @@ import styled from "styled-components"
 import Title from "./Title"
 import services from "../constants/services"
 const About = () => {
-  return <h2>about component</h2>
+  return (
+    <Wrapper className="section">
+      <Title title="about us"/>
+      <div className="section-center">
+        {
+          services.map(({id, icon, label, text})=>{
+            return(
+              <article key={id}>
+                <span> {icon} </span>
+                <h4>{label}</h4>
+                  <p>{text}</p>
+              </article>
+            )
+          })
+        }
+      </div>
+    </Wrapper>
+  )
 }
 const Wrapper = styled.section`
   .section-center {
@@ -14,7 +31,7 @@ const Wrapper = styled.section`
     grid-gap: 2rem;
     .icon {
       font-size: 4rem;
-      color: var(--clr-primary-5);
+      color: var(--clr-primary-5); /* mauve */
       margin-bottom: 1rem;
     }
     h4 {
@@ -22,7 +39,7 @@ const Wrapper = styled.section`
       font-weight: 500;
     }
     p {
-      color: var(--clr-grey-3);
+      color: #553d54;
       max-width: 35em;
     }
     @media (min-width: 768px) {
