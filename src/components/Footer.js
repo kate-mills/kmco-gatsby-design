@@ -13,7 +13,7 @@ const Wrapper = styled.footer`
   height: 5rem;
   display: grid;
   place-items: center;
-  background: var(--clr-black);
+  background: var(--darkGrey);
   text-align: center;
   padding: 1rem;
   p {

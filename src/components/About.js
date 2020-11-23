@@ -23,6 +23,7 @@ const About = () => {
   )
 }
 const Wrapper = styled.section`
+  background: var(--mainBackground);
   .section-center {
     margin-top: 4rem;
     display: grid;

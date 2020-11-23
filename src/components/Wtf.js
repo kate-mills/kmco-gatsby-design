@@ -5,9 +5,9 @@ const Hero = ({children}) => {
   return (
     <div className="hero">
       <div className="banner">
-        <h2 className="cursive">If you can dream it, we can create it.</h2>
+        <p className="cursive">If you can dream it, we can create it.</p>
         <h1>Let your online presence be unique and stylish</h1>
-        {children}
+          {children}
           <Link className="btn btn-primary btn-hero" to="/projects">Projects</Link>
       </div>
     </div>

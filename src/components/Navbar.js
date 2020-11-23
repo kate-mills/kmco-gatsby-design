@@ -4,7 +4,6 @@ import logo from "../images/devsalon-3dd copy.png"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
-import AnimatedSvg from "./AnimatedSvg"
 
 import {GatsbyContext} from '../context/context'
 
@@ -19,10 +18,7 @@ const Navbar = () => {
     <Wrapper>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
-            { (<img src={logo} alt="devsalon logo"/> && <AnimatedSvg/>) ||<img src={logo} alt="design"/>}
-            <img src={logo} alt="devsalon logo"/> 
-          </Link>
+          <Link to="/"><img src={logo} alt="devsalon logo"/></Link>
             <button className="toggle-btn" onClick={showSidebar}>
               <GoThreeBars/>
             </button>

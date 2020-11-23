@@ -78,8 +78,10 @@ const Slider = () => {
 
 }
 
+
 const Wrapper = styled.div`
-  background: var(--clr-grey-10);
+  /* background: var(--clr-grey-10);*/
+  background: var(--mainBackground);
   .section-center {
     margin-top: 4rem;
     width: 80vw;
