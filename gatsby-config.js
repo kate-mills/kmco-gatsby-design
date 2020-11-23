@@ -2,15 +2,16 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
- const queries = require("./src/constants/algolia")
+const queries = require("./src/constants/algolia")
+
 module.exports = {
   siteMetadata: {
-    title: `devsalon`,
+    title: `DevSalon`,
     description: `We build `,
     author: `@kate-mills`,
-    titleTemplate: `%s | devsalon`,
-    url: `https://gatsby-airtable-design-project.netlify.app/`,
-    image: `black-feathers.jpg`,
+    titleTemplate: `%s | DevSalon`,
+    url: `https://devsalon.netlify.app`,
+    image: `black-feathers.jpg`, // needs to be in static folder
     twitterUsername: `@katie_napa`,
   },
   plugins: [
