@@ -5,7 +5,7 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import SearchButtons from "./SearchButtons"
 
-const Projects = ({projects:data, title, showAllProjectsBtn}) => {
+const Projects = ({projects:data, title, showAllProjectsBtn, showSearchBtns}) => {
   const [projects, setProjects] = React.useState(data);
 
   const setBackToAll = () =>{
@@ -16,7 +16,7 @@ const Projects = ({projects:data, title, showAllProjectsBtn}) => {
     <Wrapper className="section">
       <Title title={title || "projects"}/>
 
-      { showAllProjectsBtn && <SearchButtons
+      { showSearchBtns && <SearchButtons
         projects={data}
         setProjects={setProjects}
         setBackToAll={setBackToAll}
@@ -25,7 +25,7 @@ const Projects = ({projects:data, title, showAllProjectsBtn}) => {
 
       <div className="section-center">
         {projects.map((item)=>{
-          const {name, date, type} = item.data
+          const {name, type} = item.data
           const fluid = item.data.image.localFiles[0].childImageSharp.fluid
           return(
             <article key={item.id}>

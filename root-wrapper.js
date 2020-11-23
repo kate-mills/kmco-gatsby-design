@@ -7,7 +7,7 @@ import "fontsource-playfair-display"; // headers
 import "fontsource-sacramento";
 
 import { createGlobalStyle } from "styled-components"
-//import { GatsbyProvider } from "./src/context/context"
+import { GatsbyProvider } from "./src/context/context"
 
 const GlobalStyle = createGlobalStyle`
 /*
@@ -340,14 +340,14 @@ p {
   color: var(--mauve);
 }
 
-
-
 `
 export const wrapRootElement = ({ element }) => {
   return (
     <>
+    <GatsbyProvider>
       <GlobalStyle />
       {element}
+    </GatsbyProvider>
     </>
   )
 }

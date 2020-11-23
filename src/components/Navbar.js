@@ -1,35 +1,38 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
-import logo from "../images/devsalon-3dd\ copy.png"
+import logo from "../images/devsalon-3dd copy.png"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
 import AnimatedSvg from "./AnimatedSvg"
 
+import {GatsbyContext} from '../context/context'
+
 const Navbar = () => {
+  const {showSidebar, links} = React.useContext(GatsbyContext)
+
+  const mamaPages = [...new Set(links.map(link=>{
+    return link.page
+  }))]
 
   return (
     <Wrapper>
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            {/* {<img src={logo} alt="devsalon logo"/> && <AnimatedSvg/>||<img src={logo} alt="design"/>}*/}
+            { (<img src={logo} alt="devsalon logo"/> && <AnimatedSvg/>) ||<img src={logo} alt="design"/>}
             <img src={logo} alt="devsalon logo"/> 
           </Link>
-            <button className="toggle-btn">
+            <button className="toggle-btn" onClick={showSidebar}>
               <GoThreeBars/>
             </button>
         </div>
         <ul className="nav-links">
-          <li>
-            <button>products</button>
-          </li>
-          <li>
-            <button>developers</button>
-          </li>
-          <li>
-            <button>company</button>
-          </li>
+          {
+            mamaPages.map((page, index) => {
+              return <NavLink key={index} page={page}/>
+            })
+          }
         </ul>
       </div>
     </Wrapper>

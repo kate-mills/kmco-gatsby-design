@@ -8,10 +8,8 @@ const SearchButtons = ({projects, setProjects, setBackToAll}) => {
       return project.data.type
     })
   )];
-  console.log('types', types)
 
   const showProjects = (type, typeIndex)=>{
-    console.log(type, typeIndex);
     setIndex(typeIndex);
     if(type === 'all'){
       setBackToAll()
@@ -21,7 +19,6 @@ const SearchButtons = ({projects, setProjects, setBackToAll}) => {
       })
       setProjects(tempProjects);
     }
-
   }
 
   return <Wrapper>

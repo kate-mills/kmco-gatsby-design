@@ -3,21 +3,21 @@ import { graphql } from "gatsby"
 import {
   Layout,
   BasicHero,
-  Hero,
   About,
-  Projects,
   Survey,
   Slider,
   GridProjects,
 } from "../components"
-import SEO from "../components/seo"
+
+//import SEO from "../components/seo"
+
 const HomePage = ({data}) => {
   const {allAirtable:{nodes:projects}} = data
   return (
     <Layout>
       <BasicHero/>
       <About/>
-      <Projects projects={projects} title={"latest projects"} showAllProjectsBtn/>
+      <GridProjects projects={projects} title={"latest projects"} showAllProjectsBtn/>
       <Slider/>
       <Survey title={"Top Social Media Platforms"}/>
     </Layout>
@@ -27,7 +27,7 @@ const HomePage = ({data}) => {
 
 export const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "Projects"}}, limit: 3, sort: {order: DESC, fields: data___date}) {
+    allAirtable(filter: {table: {eq: "Projects"}}, limit: 4, sort: {order: DESC, fields: data___date}) {
       nodes {
         id
         data {

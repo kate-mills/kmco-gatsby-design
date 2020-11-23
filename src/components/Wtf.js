@@ -1,6 +1,4 @@
 import React from "react"
-import Background from "./Background"
-import styled from "styled-components"
 import { Link } from "gatsby"
 
 const Hero = ({children}) => {

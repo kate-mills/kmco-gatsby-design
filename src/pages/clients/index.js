@@ -2,7 +2,7 @@ import React from "react"
 import { Layout } from "../../components"
 import styled from "styled-components"
 import { Link } from "gatsby"
-const Payments = (props) => {
+const Clients = (props) => {
   console.log(props)
   return (
     <Layout>
@@ -40,4 +40,4 @@ const Wrapper = styled.main`
   }
 `
 
-export default Payments
+export default Clients

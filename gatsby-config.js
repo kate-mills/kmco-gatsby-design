@@ -1,18 +1,30 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-// const queries = require("./src/constants/algolia")
+ const queries = require("./src/constants/algolia")
 module.exports = {
   siteMetadata: {
-    title: `KMCO Design`,
-    description: `Gatsby Airtable Example. Built using Airtable, Algolia Search, Gatsby Background Image plugin and  React Context API. Containts two sliders, real-time Airtable updates and submenus. Styled using Styled-Components. `,
+    title: `devsalon`,
+    description: `We build `,
     author: `@kate-mills`,
-    titleTemplate: `%s | Kate Mills Company`,
+    titleTemplate: `%s | devsalon`,
     url: `https://gatsby-airtable-design-project.netlify.app/`,
-    image: `tree.jpg`,
-    twitterUsername: `@john_smilga`,
+    image: `black-feathers.jpg`,
+    twitterUsername: `@katie_napa`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Kate Mills Company`,
+        short_name: `devsalon`,
+        start_url: `/`,
+        background_color: `#DBDBDB`,
+        theme_color: `#b0696f`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -46,6 +58,16 @@ module.exports = {
           },
         ]
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries: require('./src/constants/algolia'),
+        chunkSize: 10000,
+      }
+    },
   ],
 }

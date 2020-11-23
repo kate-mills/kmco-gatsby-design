@@ -70,8 +70,8 @@ const Slider = () => {
             </article>
           )
         })}
-        <button className="prev" onClick={()=>setIndex((currentIndex)=>currentIndex-1)}><FiChevronLeft/></button>
-        <button className="next" onClick={()=>setIndex((currentIndex)=>currentIndex+1)}><FiChevronRight/></button>
+        <button aria-label="Previous" className="prev" onClick={()=>setIndex((currentIndex)=>currentIndex-1)}><FiChevronLeft/></button>
+        <button aria-label="Next" className="next" onClick={()=>setIndex((currentIndex)=>currentIndex+1)}><FiChevronRight/></button>
       </div>
     </Wrapper>
   )
