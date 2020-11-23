@@ -272,7 +272,8 @@ p {
   min-height: calc(65vh);
   background: linear-gradient(
       to right,
-      rgba(116, 149, 171, 0.1) 1%,
+     rgba(225, 225, 225, 0.5) 1%,
+    /* rgba(116, 149, 171, 0.1) 1%,*/
       rgba(255, 255, 255, 0.1)
     ),
     url("black-feathers.jpg") top/cover no-repeat;
@@ -292,7 +293,7 @@ p {
 .hero h1 {
   font-size: 3rem;
   text-transform: capitalize;
-}
+} 
 .hero p {
   font-size: 1.5rem;
   font-weight: bold;

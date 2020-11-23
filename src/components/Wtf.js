@@ -6,7 +6,7 @@ const Hero = ({children}) => {
     <div className="hero">
       <div className="banner">
         <p className="cursive">If you can dream it, we can create it.</p>
-        <h1>Let your online presence be unique and stylish</h1>
+        <h1>Unique & Stylish Digital Designs</h1>
           {children}
           <Link className="btn btn-primary btn-hero" to="/projects">Projects</Link>
       </div>
