@@ -5,33 +5,36 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import Title from "./Title"
 import algoliasearch from "algoliasearch/lite"
-import {
-  InstantSearch,
-  SearchBox,
-  connectHits,
-} from "react-instantsearch-dom"
+import { InstantSearch, SearchBox, connectHits } from "react-instantsearch-dom"
 
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
 
-const searchClient = algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_KEY)
-
-const NewHits = connectHits(({hits})=>{
+const NewHits = connectHits(({ hits }) => {
   return hits.map(item => {
-    const {objectID, image, name} = item
-    return <article key={objectID}>
-      <Image fluid={image} className="img"/>
-      <h4>{name}</h4>
-    </article>
+    const { objectID, image, name } = item
+    return (
+      <article key={objectID}>
+        <Image fluid={image} className="img" />
+        <h4>{name}</h4>
+      </article>
+    )
   })
 })
 
 const Search = () => {
   return (
     <Wrapper>
-      <Title title="Search Projects"/>
-      <InstantSearch indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME} searchClient={searchClient}>
-        <SearchBox/>
+      <Title title="Search Projects" />
+      <InstantSearch
+        indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+        searchClient={searchClient}
+      >
+        <SearchBox />
         <Container className="section-center">
-          <NewHits/>
+          <NewHits />
         </Container>
       </InstantSearch>
     </Wrapper>

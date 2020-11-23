@@ -7,24 +7,26 @@ import sublinks from "../constants/links"
 
 // GatsbyContext.Provider - takes 'value' prop
 
+const GatsbyContext = React.createContext()
 
-const GatsbyContext = React.createContext();
-
-const GatsbyProvider = ({children}) => {
+const GatsbyProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false)
   const [links, setLinks] = React.useState(sublinks)
 
-  const showSidebar = ()=>{
-    setIsSidebarOpen(true);
+  const showSidebar = () => {
+    setIsSidebarOpen(true)
   }
-  const hideSidebar = ()=>{
-    setIsSidebarOpen(false);
+  const hideSidebar = () => {
+    setIsSidebarOpen(false)
   }
 
-  return <GatsbyContext.Provider value={{isSidebarOpen, links, setLinks, showSidebar, hideSidebar}}>
-    {children}
-  </GatsbyContext.Provider>
+  return (
+    <GatsbyContext.Provider
+      value={{ isSidebarOpen, links, setLinks, showSidebar, hideSidebar }}
+    >
+      {children}
+    </GatsbyContext.Provider>
+  )
 }
 
-
-export {GatsbyContext, GatsbyProvider}
+export { GatsbyContext, GatsbyProvider }

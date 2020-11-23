@@ -1,15 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import { Layout, Projects, Algolia} from "../components"
+import { Layout, Projects, Algolia } from "../components"
 
-const ProjectsPage = ({data}) => {
-  const {allAirtable:{nodes:projects}} = data
+const ProjectsPage = ({ data }) => {
+  const {
+    allAirtable: { nodes: projects },
+  } = data
   return (
     <Wrapper>
       <Layout>
-        <Projects projects={projects} title={"all projects"} showSearchBtns/>
-        <Algolia/>
+        <Projects projects={projects} title={"all projects"} showSearchBtns />
+        <Algolia />
       </Layout>
     </Wrapper>
   )
@@ -23,11 +25,12 @@ const Wrapper = styled.main`
   }
 `
 
-
-
 export const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "Projects"}}, sort: {order: DESC, fields: data___date}) {
+    allAirtable(
+      filter: { table: { eq: "Projects" } }
+      sort: { order: DESC, fields: data___date }
+    ) {
       nodes {
         id
         data {
@@ -49,6 +52,5 @@ export const query = graphql`
     }
   }
 `
-
 
 export default ProjectsPage

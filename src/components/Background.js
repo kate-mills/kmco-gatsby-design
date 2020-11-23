@@ -3,10 +3,9 @@ import BackgroundImage from "gatsby-background-image"
 import styled, { keyframes } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
-
 const query = graphql`
   {
-    file(relativePath: {eq: "white-wallpaper.jpg"}) {
+    file(relativePath: { eq: "white-wallpaper.jpg" }) {
       name
       childImageSharp {
         fluid {
@@ -16,8 +15,12 @@ const query = graphql`
     }
   }
 `
-const Background = ({children, image}) => {
-  const {file:{childImageSharp:{fluid}}} = useStaticQuery(query) 
+const Background = ({ children, image }) => {
+  const {
+    file: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(query)
 
   return (
     <Wrapper>

@@ -3,26 +3,28 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import {GatsbyContext} from '../context/context'
+import { GatsbyContext } from "../context/context"
 
-const NavLink = ({page}) => {
-  const {links} = React.useContext(GatsbyContext)
+const NavLink = ({ page }) => {
+  const { links } = React.useContext(GatsbyContext)
 
   return (
     <Wrapper>
       <button>{page}</button>
       <div className="links">
-        {
-          links.map((link, index)=>{
-            const {url, label, icon} = link
-            if(link.page === page){
-              return <Link to={url} key={index}>{icon} {label}</Link>
-            } else {
-              return undefined
-            }
-          })
-        }
-        <div className="caret"/>
+        {links.map((link, index) => {
+          const { url, label, icon } = link
+          if (link.page === page) {
+            return (
+              <Link to={url} key={index}>
+                {icon} {label}
+              </Link>
+            )
+          } else {
+            return undefined
+          }
+        })}
+        <div className="caret" />
       </div>
     </Wrapper>
   )

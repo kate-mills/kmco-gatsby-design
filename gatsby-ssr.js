@@ -1,10 +1,10 @@
-import {wrapRootElement as wrap} from './root-wrapper'
+import { wrapRootElement as wrap } from "./root-wrapper"
 
-require('typeface-montserrat')
+require("typeface-montserrat")
 
-require('typeface-sacramento')
+require("typeface-sacramento")
 
-require('typeface-josefin-slab')
-require('typeface-roboto')
+require("typeface-josefin-slab")
+require("typeface-roboto")
 
-export const wrapRootElement = wrap;
+export const wrapRootElement = wrap

@@ -39,27 +39,27 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve:`gatsby-source-airtable`,
-      options:{
+      resolve: `gatsby-source-airtable`,
+      options: {
         apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
         concurrency: 5,
         tables: [
           {
             baseId: process.env.GATSBY_AIRTABLE_STORE_BASE_ID,
-            tableName:`Projects`,
-            mapping:{image:`fileNode`}
+            tableName: `Projects`,
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_STORE_BASE_ID,
-            tableName:`Customers`,
-            mapping:{image:`fileNode`}
+            tableName: `Customers`,
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_STORE_BASE_ID,
-            tableName: `Survey`
+            tableName: `Survey`,
           },
-        ]
-      }
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-algolia`,
@@ -67,9 +67,9 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        queries: require('./src/constants/algolia'),
+        queries: require("./src/constants/algolia"),
         chunkSize: 10000,
-      }
+      },
     },
   ],
 }

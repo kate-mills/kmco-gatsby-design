@@ -8,7 +8,7 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 
 const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "Customers"}}) {
+    allAirtable(filter: { table: { eq: "Customers" } }) {
       nodes {
         id
         data {
@@ -19,7 +19,7 @@ const query = graphql`
             id
             localFiles {
               childImageSharp {
-                fixed(width:150, height: 150) {
+                fixed(width: 150, height: 150) {
                   ...GatsbyImageSharpFixed
                 }
               }
@@ -31,53 +31,70 @@ const query = graphql`
   }
 `
 const Slider = () => {
-  const {allAirtable:{nodes:customers}} = useStaticQuery(query);
+  const {
+    allAirtable: { nodes: customers },
+  } = useStaticQuery(query)
 
   const [index, setIndex] = React.useState(0)
 
-  React.useEffect(()=>{
-    const lastIndex = customers.length -1;
-    if(index < 0){
-      setIndex(lastIndex);
+  React.useEffect(() => {
+    const lastIndex = customers.length - 1
+    if (index < 0) {
+      setIndex(lastIndex)
     }
-    if(index > lastIndex){
+    if (index > lastIndex) {
       setIndex(0)
     }
   }, [index, customers])
 
   return (
     <Wrapper className="section">
-      <Title title="reviews"/>
+      <Title title="reviews" />
       <div className="section-center">
-        {customers.map((customer, customerIndex)=>{
-          const {data:{image, name, title, quote}} = customer;
-          const customerImg = image.localFiles[0].childImageSharp.fixed;
+        {customers.map((customer, customerIndex) => {
+          const {
+            data: { image, name, title, quote },
+          } = customer
+          const customerImg = image.localFiles[0].childImageSharp.fixed
 
           let position = "nextSlide"
-          if (customerIndex === index){
-            position = 'activeSlide'
+          if (customerIndex === index) {
+            position = "activeSlide"
           }
-          if(customerIndex === index-1 || (index === 0 && customerIndex === customers.length-1)){
-            position = 'lastSlide'
+          if (
+            customerIndex === index - 1 ||
+            (index === 0 && customerIndex === customers.length - 1)
+          ) {
+            position = "lastSlide"
           }
-          return(
+          return (
             <article key={customerIndex} className={position}>
               <Image fixed={customerImg} className="img" />
               <h4>{name}</h4>
               <p className="title">{title}</p>
               <p className="text">{quote}</p>
-              <FaQuoteRight className="icon"/>
+              <FaQuoteRight className="icon" />
             </article>
           )
         })}
-        <button aria-label="Previous" className="prev" onClick={()=>setIndex((currentIndex)=>currentIndex-1)}><FiChevronLeft/></button>
-        <button aria-label="Next" className="next" onClick={()=>setIndex((currentIndex)=>currentIndex+1)}><FiChevronRight/></button>
+        <button
+          aria-label="Previous"
+          className="prev"
+          onClick={() => setIndex(currentIndex => currentIndex - 1)}
+        >
+          <FiChevronLeft />
+        </button>
+        <button
+          aria-label="Next"
+          className="next"
+          onClick={() => setIndex(currentIndex => currentIndex + 1)}
+        >
+          <FiChevronRight />
+        </button>
       </div>
     </Wrapper>
   )
-
 }
-
 
 const Wrapper = styled.div`
   /* background: var(--clr-grey-10);*/

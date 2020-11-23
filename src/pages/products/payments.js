@@ -2,14 +2,16 @@ import React from "react"
 import { Layout } from "../../components"
 import styled from "styled-components"
 import { Link } from "gatsby"
-const Payments = (props) => {
+const Payments = props => {
   console.log(props)
   return (
     <Layout>
       <Wrapper>
         <div>
-        <h1>{props.location.pathname.slice(1)}</h1>
-          <Link to="/" className="btn-hero btn btn-primary">Back Home</Link>
+          <h1>{props.location.pathname.slice(1)}</h1>
+          <Link to="/" className="btn-hero btn btn-primary">
+            Back Home
+          </Link>
         </div>
       </Wrapper>
     </Layout>

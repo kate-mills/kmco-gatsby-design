@@ -5,32 +5,38 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import SearchButtons from "./SearchButtons"
 
-const Projects = ({projects:data, title, showAllProjectsBtn, showSearchBtns}) => {
-  const [projects, setProjects] = React.useState(data);
+const Projects = ({
+  projects: data,
+  title,
+  showAllProjectsBtn,
+  showSearchBtns,
+}) => {
+  const [projects, setProjects] = React.useState(data)
 
-  const setBackToAll = () =>{
-    setProjects(data);
+  const setBackToAll = () => {
+    setProjects(data)
   }
 
   return (
     <Wrapper className="section">
-      <Title title={title || "projects"}/>
+      <Title title={title || "projects"} />
 
-      { showSearchBtns && <SearchButtons
-        projects={data}
-        setProjects={setProjects}
-        setBackToAll={setBackToAll}
+      {showSearchBtns && (
+        <SearchButtons
+          projects={data}
+          setProjects={setProjects}
+          setBackToAll={setBackToAll}
         />
-      }
+      )}
 
       <div className="section-center">
-        {projects.map((item)=>{
-          const {name, type} = item.data
+        {projects.map(item => {
+          const { name, type } = item.data
           const fluid = item.data.image.localFiles[0].childImageSharp.fluid
-          return(
+          return (
             <article key={item.id}>
               <div className="container">
-                <Image fluid={fluid} className="img"/>
+                <Image fluid={fluid} className="img" />
                 <div className="info">
                   <p>- {type} -</p>
                   <h3>{name}</h3>
@@ -40,9 +46,11 @@ const Projects = ({projects:data, title, showAllProjectsBtn, showSearchBtns}) =>
           )
         })}
       </div>
-      {
-        showAllProjectsBtn && <Link to="/projects" className="btn">all projects</Link>
-      }
+      {showAllProjectsBtn && (
+        <Link to="/projects" className="btn">
+          all projects
+        </Link>
+      )}
     </Wrapper>
   )
 }

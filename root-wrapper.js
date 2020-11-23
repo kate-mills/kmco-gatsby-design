@@ -2,9 +2,9 @@ import React from "react"
 
 import "fontsource-great-vibes"
 import "fontsource-open-sans" // Defaults to weight 400 with all styles included
-import "fontsource-karla"; // paragraphs
-import "fontsource-playfair-display"; // headers
-import "fontsource-sacramento";
+import "fontsource-karla" // paragraphs
+import "fontsource-playfair-display" // headers
+import "fontsource-sacramento"
 
 import { createGlobalStyle } from "styled-components"
 import { GatsbyProvider } from "./src/context/context"
@@ -345,10 +345,10 @@ p {
 export const wrapRootElement = ({ element }) => {
   return (
     <>
-    <GatsbyProvider>
-      <GlobalStyle />
-      {element}
-    </GatsbyProvider>
+      <GatsbyProvider>
+        <GlobalStyle />
+        {element}
+      </GatsbyProvider>
     </>
   )
 }

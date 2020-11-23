@@ -8,4 +8,15 @@ import Algolia from "./Algolia"
 import GridProjects from "./GridProjects"
 import BasicHero from "./Wtf"
 import AnimatedSvg from "./AnimatedSvg"
-export { Layout, Hero, About, Projects, Survey, Slider, Algolia, GridProjects, BasicHero, AnimatedSvg }
+export {
+  Layout,
+  Hero,
+  About,
+  Projects,
+  Survey,
+  Slider,
+  Algolia,
+  GridProjects,
+  BasicHero,
+  AnimatedSvg,
+}

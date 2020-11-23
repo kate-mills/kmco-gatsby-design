@@ -5,47 +5,47 @@ import base from "./Airtable"
 import { FaVoteYea } from "react-icons/fa"
 import LoadingGif from "./LoadingGif"
 
-const Survey = ({title}) => {
+const Survey = ({ title }) => {
   const [items, setItems] = React.useState([])
   const [loading, setLoading] = React.useState(true)
 
-  const getRecords = async ()=> {
-    const records = await base('Survey')
+  const getRecords = async () => {
+    const records = await base("Survey")
       .select({})
       .firstPage()
       .catch(err => console.log(err))
-    const newItems = records.map((record)=>{
-      const {id, fields} = record
-      return {id,fields}
+    const newItems = records.map(record => {
+      const { id, fields } = record
+      return { id, fields }
     })
     setItems(newItems)
     setLoading(false)
-  };
+  }
 
-  const giveVote = async (id)=>{
-    setLoading(true);
-    const tempItems = [...items].map(item=>{
-      if (item.id === id){
-        let {id, fields} = item
+  const giveVote = async id => {
+    setLoading(true)
+    const tempItems = [...items].map(item => {
+      if (item.id === id) {
+        let { id, fields } = item
         fields = { ...fields, votes: fields.votes + 1 }
-        return  { id, fields }
-      } else{
-        return item;
+        return { id, fields }
+      } else {
+        return item
       }
     })
-    const records = await base('Survey')
+    const records = await base("Survey")
       .update(tempItems)
       .catch(err => console.log(err))
-    const newItems = records.map(record =>{
-      const {id, fields} = record
-      return {id, fields}
+    const newItems = records.map(record => {
+      const { id, fields } = record
+      return { id, fields }
     })
     setItems(newItems)
     setLoading(false)
-  };
+  }
 
-  React.useEffect(()=>{
-    getRecords();
+  React.useEffect(() => {
+    getRecords()
   }, [])
 
   return (
@@ -53,27 +53,30 @@ const Survey = ({title}) => {
       <div className="container">
         <Title title="survey"></Title>
         <h3>Your favorite social media platform?</h3>
-        {loading?<LoadingGif />:(
+        {loading ? (
+          <LoadingGif />
+        ) : (
           <ul>
-            {
-              items.map(item=>{
-                const {id, fields:{name, votes}} = item;
-                return(
-                  <li key={id}>
+            {items.map(item => {
+              const {
+                id,
+                fields: { name, votes },
+              } = item
+              return (
+                <li key={id}>
                   <div className="key">
                     {name.toUpperCase().substring(0, 2)}
                   </div>
-                    <div>
-                      <h4>{name}</h4>
-                      <p>{votes} votes</p>
-                    </div>
-                    <button>
-                      <FaVoteYea onClick={()=>giveVote(id)}/>
-                    </button>
-                  </li>
-                )
-            })
-            }
+                  <div>
+                    <h4>{name}</h4>
+                    <p>{votes} votes</p>
+                  </div>
+                  <button>
+                    <FaVoteYea onClick={() => giveVote(id)} />
+                  </button>
+                </li>
+              )
+            })}
           </ul>
         )}
       </div>

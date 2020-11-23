@@ -5,30 +5,34 @@ import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
 
-import {GatsbyContext} from '../context/context'
+import { GatsbyContext } from "../context/context"
 
 const Navbar = () => {
-  const {showSidebar, links} = React.useContext(GatsbyContext)
+  const { showSidebar, links } = React.useContext(GatsbyContext)
 
-  const mamaPages = [...new Set(links.map(link=>{
-    return link.page
-  }))]
+  const mamaPages = [
+    ...new Set(
+      links.map(link => {
+        return link.page
+      })
+    ),
+  ]
 
   return (
     <Wrapper>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/"><img src={logo} alt="devsalon logo"/></Link>
-            <button className="toggle-btn" onClick={showSidebar}>
-              <GoThreeBars/>
-            </button>
+          <Link to="/">
+            <img src={logo} alt="devsalon logo" />
+          </Link>
+          <button className="toggle-btn" onClick={showSidebar}>
+            <GoThreeBars />
+          </button>
         </div>
         <ul className="nav-links">
-          {
-            mamaPages.map((page, index) => {
-              return <NavLink key={index} page={page}/>
-            })
-          }
+          {mamaPages.map((page, index) => {
+            return <NavLink key={index} page={page} />
+          })}
         </ul>
       </div>
     </Wrapper>
@@ -52,7 +56,8 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img, svg {
+    img,
+    svg {
       width: auto;
     }
     .toggle-btn {

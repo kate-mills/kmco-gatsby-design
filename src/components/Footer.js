@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <Wrapper>
       <p>
-        &copy; {new Date().getFullYear()} Kate Mills Company, LLC. All rights reserved.
+        &copy; {new Date().getFullYear()} Kate Mills Company, LLC. All rights
+        reserved.
       </p>
     </Wrapper>
   )

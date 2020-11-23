@@ -6,7 +6,7 @@ import {
   //GiStabbedNote, GiBank, GiPiggyBank, GiRoundStar,GiBriefcase,
 } from "react-icons/gi"
 
-import { FaRegHandshake } from "react-icons/fa";
+import { FaRegHandshake } from "react-icons/fa"
 
 export default [
   {
@@ -14,14 +14,14 @@ export default [
     icon: <GiCompass className="icon" />,
     label: "mission",
     text:
-    " Develop beautiful responsive custom digital solutions for salons and spas with exemplary customer service.",
+      " Develop beautiful responsive custom digital solutions for salons and spas with exemplary customer service.",
   },
   {
     id: 2,
     icon: <GiDiamondHard className="icon" />,
     label: "vision",
     text:
-    " We are a professional and energetic full-service digital agency helping small businesses in the Beauty industry bring new clients to their doors and drive brand awareness.",
+      " We are a professional and energetic full-service digital agency helping small businesses in the Beauty industry bring new clients to their doors and drive brand awareness.",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export default [
     //icon: <GiStabbedNote className="icon" />,
     label: "results",
     text:
-    " Through our innovative web solutions, we will build and enhance an everlasting bond between you and your customer.",
+      " Through our innovative web solutions, we will build and enhance an everlasting bond between you and your customer.",
   },
   {
     id: 4,

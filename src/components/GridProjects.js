@@ -3,17 +3,17 @@ import Title from "./Title"
 import Image from "gatsby-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
-const GridProjects = ({projects, title}) => {
+const GridProjects = ({ projects, title }) => {
   return (
     <Wrapper>
-      <Title title={title || 'projects'}/>
+      <Title title={title || "projects"} />
       <div className="tile-layout">
-        {projects.map((project, index)=>{
-          const {name, type} = project.data
+        {projects.map((project, index) => {
+          const { name, type } = project.data
           const fluid = project.data.image.localFiles[0].childImageSharp.fluid
           return (
             <article key={index} className={`div-${index}`}>
-              <Image className="img" fluid={fluid}/>
+              <Image className="img" fluid={fluid} />
               <div className="info">
                 <p>- {type} -</p>
                 <h3>{name}</h3>
@@ -22,7 +22,9 @@ const GridProjects = ({projects, title}) => {
           )
         })}
       </div>
-      <Link to="/projects" className="btn btn-primary btn-hero">all projects</Link>
+      <Link to="/projects" className="btn btn-primary btn-hero">
+        all projects
+      </Link>
     </Wrapper>
   )
 }

@@ -2,9 +2,12 @@ import React from "react"
 import styled from "styled-components"
 
 const Title = ({ title }) => {
-  return(
+  return (
     <Wrapper>
-      <h2><span>/</span>{title}</h2>
+      <h2>
+        <span>/</span>
+        {title}
+      </h2>
     </Wrapper>
   )
 }
