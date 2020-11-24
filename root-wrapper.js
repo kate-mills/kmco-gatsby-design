@@ -3,7 +3,7 @@ import React from "react"
 
 //import "fontsource-great-vibes"
 import "fontsource-open-sans" // Defaults to weight 400 with all styles included
-//import "fontsource-karla" // paragraphs
+import "fontsource-karla" // paragraphs
 //import "fontsource-playfair-display" // headers
 import "fontsource-sacramento"
 
