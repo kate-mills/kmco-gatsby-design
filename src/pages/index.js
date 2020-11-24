@@ -9,7 +9,7 @@ import {
   GridProjects,
 } from "../components"
 
-//import SEO from "../components/seo"
+import SEO from "../components/seo"
 
 const HomePage = ({ data }) => {
   const {
@@ -17,6 +17,7 @@ const HomePage = ({ data }) => {
   } = data
   return (
     <Layout>
+      <SEO title="Home"/>
       <BasicHero />
       <About />
       <GridProjects

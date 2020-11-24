@@ -1,9 +1,10 @@
 import React from "react"
 
-import "fontsource-great-vibes"
+
+//import "fontsource-great-vibes"
 import "fontsource-open-sans" // Defaults to weight 400 with all styles included
-import "fontsource-karla" // paragraphs
-import "fontsource-playfair-display" // headers
+//import "fontsource-karla" // paragraphs
+//import "fontsource-playfair-display" // headers
 import "fontsource-sacramento"
 
 import { createGlobalStyle } from "styled-components"
@@ -23,7 +24,7 @@ Variables
   --lightPink: hsl(355deg 15% 72%);
   --darkGrey: hsl(221deg 8% 50%);
   --mauve: hsl(355deg 31% 55%);
-  --wine: hsl(327deg 85% 18%);
+  --wine: hsl(2deg 55% 38%);
   --lightBrick: hsl(30deg 52% 46%);
   --darkBrick: hsl(12deg 73% 33%);
 
@@ -269,7 +270,7 @@ p {
 }
 
 .hero {
-  min-height: calc(65vh);
+  min-height: calc(85vh);
   background: linear-gradient(
       to right,
      rgba(225, 225, 225, 0.5) 1%,

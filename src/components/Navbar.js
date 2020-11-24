@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import logo from "../images/devsalon-3dd copy.png"
+import logo from "../images/Devsalon-100.png"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
